@@ -11,7 +11,55 @@
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div id="head">
+        <ul >
+          <li>
+            <img src="img/logo.png" alt="" width="30" height="30" align="center">
+            <span>Vue.js</span>
+            <input type="text">
+          </li>
+          <li>
+            <a href="">首页</a>
+            <a href="">注册</a>
+            <a href="">登录</a>
+          </li>
+        </ul>
+      </div>
+      <div id="con">
+        <ul>
+          <li>
+            <span @click="clickAll(0)"    :class=" currIndex==0 ? next : init " >全部</span>
+            <span @click="clickGood(1)"  :class=" currIndex==1 ? next : init " >精华</span>
+            <span @click='clickShare(2)'   :class=" currIndex==2 ? next : init " >分享</span>
+            <span @click='clickAsk(3)'   :class=" currIndex==3 ? next : init " >问答</span>
+            <span @click='clickJob(4)'   :class=" currIndex==4 ? next : init " >招聘</span>
+          </li>
+          <li v-for="item in info" class="info">
+            <div>
+              <img :src="item.author.avatar_url" alt="" width="20" height="20">
+              <span>{{item.reply_count}}/{{item.visit_count}}</span>
+              <span v-if="item.top">置顶</span>
+              <span v-else-if="item.tab == 'share'">分享</span>
+              <span v-else-if="item.tab == 'ask'">问答</span>
+              <span v-else-if="item.tab == 'good'">精华</span>
+              <span v-else-if="item.tab == 'job'">招聘</span>
+              <span>{{item.title}}</span>
+            </div>
+            <div>
+              <span>{{item.last_reply_at | time}}</span>
+              <!-- <span>{{item.last_reply_at }}</span> -->
+            </div>
+          </li>
+        </ul>
+        <div>
+          <span @click="first">1</span>
+          <span @click="second">2</span>
+          <span @click="third">3</span>
+          <span @click="fourth">4</span>
+        </div>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

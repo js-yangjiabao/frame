@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+ul{
+    list-style: none;
+}
+#head{
+    background-color: teal;
+    height: 50px;
+}
+#head ul{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+#head ul li{
+    line-height: 50px;
+    
+}
+#con{
+    width: 1200px;
+    margin: 50px auto;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+
+}
+.styleTop{
+    background-color: white;
+}
+.activeTop{
+    background-color: teal;
+}
